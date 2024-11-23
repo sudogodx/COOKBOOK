@@ -478,6 +478,34 @@ img {
   margin: 1rem 0;
 }
 
+.mt-1 {
+  margin-top: 1rem !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
+
+.title {
+  color: var(--secondary);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s;
+}
+
+.title:hover {
+  color: var(--tertiary) !important;
+}
+
+.text-end {
+  text-align: end !important;
+}
+
 p > img + em {
   display: block;
   transform: translateY(-1rem);

@@ -51,16 +51,17 @@ export default ((opts?: Partial<FolderContentOptions>) => {
       <div class={classes}>
         <article>{content}</article>
         <div class="page-listing">
-          {options.showFolderCount && (
+          {/* ซ่อน items under this folder */}
+          {/* {options.showFolderCount && (
             <p>
               {i18n(cfg.locale).pages.folderContent.itemsUnderFolder({
                 count: allPagesInFolder.length,
               })}
             </p>
-          )}
-          <div>
+          )} */}
+          {/* <div>
             <PageList {...listProps} />
-          </div>
+          </div> */}
         </div>
       </div>
     )
