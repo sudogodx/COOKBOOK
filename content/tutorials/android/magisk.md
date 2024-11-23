@@ -1,5 +1,5 @@
 ---
-title: "Get original APK"
+title: "Root android by magisk"
 ---
 
 Once you've [[index#🪴 Get Started|initialized]] Quartz, let's see what it looks like locally:
