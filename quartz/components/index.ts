@@ -20,6 +20,8 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 import Comments from "./Comments"
+import Links from "./Links"
+import LinksHeader from "./LinksHeader"
 
 export {
   ArticleTitle,
@@ -36,6 +38,7 @@ export {
   TagList,
   Graph,
   Backlinks,
+  Links,
   Search,
   Footer,
   DesktopOnly,
@@ -44,4 +47,5 @@ export {
   NotFound,
   Breadcrumbs,
   Comments,
+  LinksHeader
 }

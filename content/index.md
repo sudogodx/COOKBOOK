@@ -1,7 +1,13 @@
 ---
-title: Welcome to Quartz
+title: Welcome to my Portfolio
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
-asas
+<img src="https://raw.githubusercontent.com/sudogodx/sudogodx/refs/heads/main/image/cover.png">
+
+```toml
+[personal]
+name = 'sudogod'
+city = 'Bangkok, Thailand'
+email = 'god "at" gmail.com'
+telegram = 'sudogod'
+```

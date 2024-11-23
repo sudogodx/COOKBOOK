@@ -1,15 +1,75 @@
+// import { PageLayout, SharedLayout } from "./quartz/cfg"
+// import * as Component from "./quartz/components"
+
+// // components shared across all pages
+// export const sharedPageComponents: SharedLayout = {
+//   head: Component.Head(),
+//   header: [],
+//   afterBody: [],
+//   footer: Component.Footer(),
+// }
+
+// // components for pages that display a single page (e.g. a single note)
+// export const defaultContentPageLayout: PageLayout = {
+//   beforeBody: [
+//     Component.Breadcrumbs(),
+//     Component.ArticleTitle(),
+//     Component.ContentMeta(),
+//     Component.TagList(),
+//   ],
+//   left: [
+//     Component.PageTitle(),
+//     Component.MobileOnly(Component.Spacer()),
+//     Component.Search(),
+//     Component.Darkmode(),
+//     Component.DesktopOnly(Component.Explorer()),
+//   ],
+//   right: [
+//     Component.Graph(),
+//     Component.DesktopOnly(Component.TableOfContents()),
+//     Component.Backlinks(),
+//   ],
+// }
+
+// // components for pages that display lists of pages  (e.g. tags or folders)
+// export const defaultListPageLayout: PageLayout = {
+//   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+//   left: [
+//     Component.PageTitle(),
+//     Component.MobileOnly(Component.Spacer()),
+//     Component.Search(),
+//     Component.Darkmode(),
+//     Component.DesktopOnly(Component.Explorer()),
+//   ],
+//   right: [],
+// }
+
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
-  header: [],
-  afterBody: [],
+  header: [Component.LinksHeader()],
+  afterBody: [
+    // Component.Comments({
+    //   provider: 'giscus',
+    //   options: {
+    //     // from data-repo
+    //     repo: 'nkapila6/nk',
+    //     // from data-repo-id
+    //     repoId: 'R_kgDOMjKIhg',
+    //     // from data-category
+    //     category: 'Announcements',
+    //     // from data-category-id
+    //     categoryId: 'DIC_kwDOMjKIhs4ChmAO',
+    //   }
+    // }),
+  ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/sudogodx",
+      // "Discord Community": "https://discord.gg/cRFFHYye7t",
     },
   }),
 }
@@ -19,7 +79,7 @@ export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
     Component.Breadcrumbs(),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    // Component.ContentMeta(),
     Component.TagList(),
   ],
   left: [
@@ -27,24 +87,54 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+//  Component.DesktopOnly(Component.Explorer({
+//   title: "Navigation",
+//   folderClickBehavior: "collapse",
+//    folderDefaultState: "collapsed",
+//    useSavedState: false,
+//    filterFn: (node) => node.name !== "tags",
+//  })),
+    Component.DesktopOnly(Component.RecentNotes({
+      title: "Recently Created",
+      limit: 5
+    })),
   ],
   right: [
+//  Component.DesktopOnly(Component.Darkmode()),
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
-    Component.Backlinks(),
+    // Component.Backlinks(),
   ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [Component.ArticleTitle()],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
-    Component.DesktopOnly(Component.Explorer()),
+    Component.DesktopOnly(Component.RecentNotes({
+      title: "Recently Created",
+      limit: 5
+    })),
   ],
   right: [],
 }
+
+// export const defaultListPageLayout: PageLayout = {
+//   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+//   left: [
+//     Component.PageTitle(),
+//     Component.MobileOnly(Component.Spacer()),
+//     Component.Search(),
+//     Component.Darkmode(),
+//     // Component.DesktopOnly(Component.Explorer()),
+//     Component.DesktopOnly(Component.RecentNotes({
+//       limit: 3
+//     }
+//     ))
+//   ],
+//   right: [],
+// }
