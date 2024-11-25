@@ -8,5 +8,5 @@ title: Android Tutorial
 </a> -->
 <a href="/tutorials/android/apk">
     <img src="https://raw.githubusercontent.com/sudogodx/sudogodx/refs/heads/main/image/provider/apk.png" class="mt-1 mb-0">
-    <p class="mt-1 mb-1 title text-end">Get original APK</p>
+    <p class="mt-1 mb-1 title text-end">📦 Get original APK</p>
 </a>

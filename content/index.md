@@ -7,7 +7,5 @@ title: Welcome to my playground
 ```toml
 [personal]
 name = 'sudogod'
-city = 'Bangkok, Thailand'
-email = 'god "at" gmail.com'
-telegram = 'sudogod'
+city = 'Phnompenh, Cambodia'
 ```
