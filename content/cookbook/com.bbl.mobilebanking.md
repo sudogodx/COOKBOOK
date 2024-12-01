@@ -1,5 +1,5 @@
 ---
-title: 🔪 Dissecting the KKP MOBILE (Chapter 1)
+title: 🔪 Dissecting the Bangkok Bank Mobile Banking (Chapter 1)
 tags:
   - android
   - pentest
@@ -89,8 +89,8 @@ public final class i9 implements t5 {
 3. https://m-kkpfg.onelink.me/W6Bx `appsflyer deeplink`
 4. http://m-kkpfg.onelink.me/W6Bx `appsflyer deeplink`
 5. [ทดสอบ KKP](kkpmobile://products/deposit/savvy/product_detail)
-6. [ทดสอบ KBANK](kbank.kplus://dfwithkplus)
-7. [ทดสอบ mycimb](mycimb://transferV3?page=re_transfer&destination_bank_code=030&destination_id=020426060933&destination_name_th=ธนาคารออมสิน&destination_name_en=GSB&destination_type=ACCOUNT_ID&destination_bank_url=https://storage.googleapis.com/cimb-th/platform/icon_banks/content/th/gsb.png&amount=10.0000&service_id=TRFACT2ACT)
+6. [ทดสอบ KKP โอนเงิน](kkpmobile://products/deposit/savvy/product_detail_lobby)
+7. [ทดสอบ KBANK](kbank.kplus://dfwithkplus)
 
 อ้างอิงจาก `AndroidManifest.xml`
 
@@ -152,3 +152,91 @@ public final class i9 implements t5 {
 - TOKEN แทนค่าพารามิเตอร์ "token"
 - REF_CODE แทนค่าพารามิเตอร์ "refcode"
 - SOURCE_TO_PRODUCT_DETAIL แทนค่าพารามิเตอร์ "source_to_product_detail"
+
+mycimb://transferV3?page=re_transfer&destination_bank_code=%s&destination_id=%s&destination_name_th=%s&destination_name_en=%s&destination_type=%s&destination_bank_url=%s&amount=%s&service_id=%s
+
+
+mycimb://transferV3?page=transfer_v3_main&amp;version=2&amp;is_require_login=true&amp;channel=quick_access&amp;root=home
+
+```java
+    public final void m34624d(@NotNull FavouritesResponse detail) {
+        String str;
+        Intrinsics.checkNotNullParameter(detail, "detail");
+        String destinationRef1 = detail.getDestinationRef1();
+        String destinationId = detail.getDestinationId();
+        String destinationIcon = detail.getDestinationIcon();
+        String str2 = "";
+        if (destinationIcon == null || destinationIcon.length() == 0) {
+            str = "";
+        } else {
+            str = detail.getDestinationIcon();
+            Intrinsics.checkNotNull(str);
+        }
+        String amount = detail.getAmount();
+        String m46965c = !(amount == null || amount.length() == 0) ? C10737b.m46965c(detail.getAmount(), 2, 2) : "";
+        String note = detail.getNote();
+        if (!(note == null || note.length() == 0)) {
+            str2 = detail.getNote();
+            Intrinsics.checkNotNull(str2);
+        }
+        this.view.m47043de(
+        "mycimb://transferv2?page=transfer_main&origin_page=" + PaymentConstants.Companion.OriginPage.TRANSFER_REPEAT.getKey() + 
+        "&destination_id=" + destinationId + 
+        "&destination_type=" + detail.getDestinationType() + 
+        "&destination_bank_code=" + destinationRef1 + 
+        "&amount=" + m46965c + 
+        "&note=" + str2 + 
+        "&destination_bank_url=" + str);
+    }
+```
+
+ค่าอะไรบ้างสำหรับ destinationType ให้ตรวจสอบที่คลาส Constants$DestinationType ซึ่งในกรณีนี้ค่าที่ใช้ได้คือ ACCOUNT_ID, MOBILE, CITIZEN_ID, และ E_WALLET
+
+`mycimb.digital.cimbthai.com.common_payment.constants.Constants$DestinationType`
+```java
+package mycimb.digital.cimbthai.com.common_payment.constants;
+
+import kotlin.Metadata;
+import p615we.C16693b;
+import p615we.InterfaceC16692a;
+
+/* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
+/* JADX WARN: Unknown enum class pattern. Please report as an issue! */
+/* compiled from: Constants.kt */
+@Metadata(m36635d1 = {"\u0000\u000e\n\u0000\n\u0002\u0010\u0010\n\u0002\u0018\u0002\n\u0002\b\u0007\b\u0086\u0081\u0002\u0018\u00002\b\u0012\u0004\u0012\u00020\u00020\u0001B\t\b\u0002¢\u0006\u0004\b\u0003\u0010\u0004j\u0002\b\u0005j\u0002\b\u0006j\u0002\b\u0007j\u0002\b\b¨\u0006\t"}, m36636d2 = {"mycimb/digital/cimbthai/com/common_payment/constants/Constants$DestinationType", "", "Lmycimb/digital/cimbthai/com/common_payment/constants/Constants$DestinationType;", "<init>", "(Ljava/lang/String;I)V", "ACCOUNT_ID", "MOBILE", "CITIZEN_ID", "E_WALLET", "common_payment_release"}, m36637k = 1, m36638mv = {1, 9, 0})
+/* loaded from: classes2.dex */
+public final class Constants$DestinationType {
+    private static final /* synthetic */ InterfaceC16692a $ENTRIES;
+    private static final /* synthetic */ Constants$DestinationType[] $VALUES;
+    public static final Constants$DestinationType ACCOUNT_ID = new Constants$DestinationType("ACCOUNT_ID", 0);
+    public static final Constants$DestinationType MOBILE = new Constants$DestinationType("MOBILE", 1);
+    public static final Constants$DestinationType CITIZEN_ID = new Constants$DestinationType("CITIZEN_ID", 2);
+    public static final Constants$DestinationType E_WALLET = new Constants$DestinationType("E_WALLET", 3);
+
+    private static final /* synthetic */ Constants$DestinationType[] $values() {
+        return new Constants$DestinationType[]{ACCOUNT_ID, MOBILE, CITIZEN_ID, E_WALLET};
+    }
+
+    static {
+        Constants$DestinationType[] $values = $values();
+        $VALUES = $values;
+        $ENTRIES = C16693b.m70780a($values);
+    }
+
+    private Constants$DestinationType(String str, int i11) {
+    }
+
+    public static Constants$DestinationType valueOf(String str) {
+        return (Constants$DestinationType) Enum.valueOf(Constants$DestinationType.class, str);
+    }
+
+    public static Constants$DestinationType[] values() {
+        return (Constants$DestinationType[]) $VALUES.clone();
+    }
+}
+```
+
+mycimb://transferv2?page=transfer_main&origin_page=transfer_repeat&destination_id=1234567890&destination_type=A&destination_bank_code=SCB&amount=5.678&note=memo&destination_bank_url=SCB
+mycimb://transferv2?page=transfer_main&origin_page=transfer_repeat&destination_id=[X]&destination_type=[X]&destination_bank_code=[X]&amount=[X]&destination_bank_url=[X]
+
+mycimb://transferv2?page=transfer_main&origin_page=transfer_repeat&destination_id=1234567890&destination_type=ACCOUNT_ID&destination_bank_code=SCB&amount=5.678&note=memo&destination_bank_url=SCB
