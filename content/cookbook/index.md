@@ -14,6 +14,10 @@ title: Cookbook
     <img src="jp.co.soramitsu.bakong.png" class="mt-1 mb-0">
     <p class="mt-1 mb-1 title text-end">🔪 Dissecting the Bakong</p>
 </a>
+<a href="/cookbook/jp-co-soramitsu-bakong">
+    <img src="jp.co.soramitsu.bakong.png" class="mt-1 mb-0">
+    <p class="mt-1 mb-1 title text-end">🔪 EZSlot</p>
+</a>
 
 <!-- [ทดสอบ3](mycimb://commonpayment?page=transaction_history_detail_v3&order_id=%s) -->
 
