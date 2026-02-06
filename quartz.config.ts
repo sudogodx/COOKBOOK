@@ -121,9 +121,12 @@ const config: QuartzConfig = {
       fontOrigin: "googleFonts",
       cdnCaching: true,
       typography: {
-        header: "Schibsted Grotesk",
-        body: "Source Sans Pro",
-        code: "IBM Plex Mono",
+        // header: "Schibsted Grotesk",
+        // body: "Source Sans Pro",
+        // code: "IBM Plex Mono",
+        header: "Kanit",   // ฟอนต์สำหรับหัวเรื่อง
+        body: "Kanit",     // ฟอนต์สำหรับเนื้อหา
+        code: "Source Code Pro" // ฟอนต์สำหรับโค้ด
       },
       colors: {
         lightMode: {

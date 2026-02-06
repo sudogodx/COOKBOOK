@@ -16,7 +16,7 @@ title: Cookbook
 </a>
 <a href="/cookbook/jp-co-soramitsu-bakong">
     <img src="jp.co.soramitsu.bakong.png" class="mt-1 mb-0">
-    <p class="mt-1 mb-1 title text-end">🔪 EZSlot</p>
+    <p class="mt-1 mb-1 title text-end">Floating Point Precision กับช่องโหว่ในระบบการเงิน</p>
 </a>
 
 <!-- [ทดสอบ3](mycimb://commonpayment?page=transaction_history_detail_v3&order_id=%s) -->
