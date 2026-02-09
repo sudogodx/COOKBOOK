@@ -1,5 +1,8 @@
 ---
 title: "🫣 Hide Root from Bank App"
+tags:
+  - android
+  - tutorials
 ---
 
 # เครื่องมือ

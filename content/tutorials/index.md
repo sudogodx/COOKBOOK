@@ -1,5 +1,7 @@
 ---
 title: Tutorial
+tags:
+  - tutorials
 ---
 
 <a href="/tutorials/android">

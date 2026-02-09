@@ -1,5 +1,7 @@
 ---
 title: Android Tutorial
+tags:
+  - android
 ---
 
 <a href="/tutorials/android/magisk">

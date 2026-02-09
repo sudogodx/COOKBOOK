@@ -68,7 +68,7 @@ export const sharedPageComponents: SharedLayout = {
   ],
   footer: Component.Footer({
     links: {
-      GitHub: "https://github.com/sudogodx",
+      // GitHub: "https://github.com/sudogodx",
       // "Discord Community": "https://discord.gg/cRFFHYye7t",
     },
   }),
@@ -80,7 +80,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Breadcrumbs(),
     Component.ArticleTitle(),
     // Component.ContentMeta(),
-    Component.TagList(),
+    // Component.TagList(),
   ],
   left: [
     Component.PageTitle(),

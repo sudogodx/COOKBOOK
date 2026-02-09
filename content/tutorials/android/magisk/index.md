@@ -1,5 +1,8 @@
 ---
 title: "👺 Root android by magisk"
+tags:
+  - android
+  - tutorials
 ---
 
 # เครื่องมือ

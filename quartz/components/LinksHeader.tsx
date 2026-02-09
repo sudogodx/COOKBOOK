@@ -18,10 +18,10 @@ export default (() => {
             <img src="https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u2696-ufe0f/u2696-ufe0f_u1f5ff.png?fbx"></img>
             <a href="/tutorials/">Tutorial</a>
           </span>
-          <span>
+          {/* <span>
             <img src="https://www.gstatic.com/android/keyboard/emojikitchen/20240206/u1f4bb/u1f4bb_u1f5ff.png?fbx"></img>
             <a href="/cookbook">Cookbook</a>
-          </span>
+          </span> */}
           <span>
             <img src="https://www.gstatic.com/android/keyboard/emojikitchen/20240530/u2622-ufe0f/u2622-ufe0f_u1f5ff.png?fbx"></img>
             <a href="/writeups">Writeups</a>

@@ -1,5 +1,8 @@
 ---
 title: "🫣 Hide Devmode"
+tags:
+  - android
+  - tutorials
 ---
 
 # เครื่องมือ
